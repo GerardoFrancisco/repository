@@ -1,0 +1,62 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui">
+
+<h:head></h:head>
+<ui:composition template="master.xhtml">
+	<ui:define name="content">
+		<h2>Registro de Establecimientos</h2>
+		<h:form>
+
+			<h:outputLabel value="Id" for="idEstablecimiento"
+				styleClass="control-label" />
+			<p:inputText id="idEstablecimiento" styleClass="form-control"
+				value="#{establecimientoController.e.idEstablecimiento}"
+				required="true" />
+
+			<h:outputLabel value="Direccion:" for="adressEstablecimiento"
+				styleClass="control-label" />
+			<p:inputText id="adressEstablecimiento" styleClass="form-control"
+				value="#{establecimientoController.e.adressEstablecimiento}"
+				required="true" />
+
+			<h:outputLabel value="Nombre:" for="nameEstablecimiento"
+				styleClass="control-label" />
+			<p:inputText id="nameEstablecimiento" styleClass="form-control"
+				value="#{establecimientoController.e.nameEstablecimiento}"
+				required="true" />
+
+			<h:outputLabel value="Reserva:" for="reserva"
+				styleClass="control-label" />
+			<p:selectOneMenu id="reserva" required="true"
+				value="#{establecimientoController.e.reserva}">
+				<f:selectItem itemLabel="Sí" itemValue="true" />
+				<f:selectItem itemLabel="No" itemValue="false" />
+			</p:selectOneMenu>
+			<br></br>
+
+			<h:outputLabel value="Tipo de Servicio:" for="tipoServicio"
+				styleClass="control-label" />
+			<p:inputText id="tipoServicio" styleClass="form-control"
+				value="#{establecimientoController.e.tipoServicio}" required="true" />
+
+			<h:outputLabel value="Balon de oxigeno:" for="balonOxigeno"
+				styleClass="control-label" />
+			<p:inputText id="balonOxigeno" styleClass="form-control"
+				value="#{establecimientoController.e.balonOxigeno}" required="true" />
+
+			<br></br>
+			<p:commandButton value="Grabar"
+				actionListener="#{establecimientoController.insert()}"
+				action="listEstablecimiento?faces-redirect=true" update="@form" />
+
+		</h:form>
+	</ui:define>
+
+</ui:composition>
+
+
+</html>
